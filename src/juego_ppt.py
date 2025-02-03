@@ -9,22 +9,24 @@ class EleccionesPPT:
     Spock = 4
 
 Posibles_victorias = {
-    EleccionesPPT.Piedra: EleccionesPPT.Tijeras, 
-    EleccionesPPT.Tijeras: EleccionesPPT.Papel,
-    EleccionesPPT.Papel: EleccionesPPT.Piedra
+    EleccionesPPT.Piedra: (EleccionesPPT.Tijeras, EleccionesPPT.Lagarto),
+    EleccionesPPT.Papel: (EleccionesPPT.Piedra, EleccionesPPT.Spock),
+    EleccionesPPT.Tijeras: (EleccionesPPT.Papel, EleccionesPPT.Lagarto),
+    EleccionesPPT.Lagarto: (EleccionesPPT.Spock, EleccionesPPT.Papel),
+    EleccionesPPT.Spock: (EleccionesPPT.Tijeras, EleccionesPPT.Piedra)
 }
 
 def evaluar_juego(eleccion_usuario, eleccion_ordenador):
 
     if eleccion_usuario == eleccion_ordenador:
         print("Ambos eligieron ", eleccion_usuario, ". Empate...")
-        return ResultadosPPT.Empate
+#        return ResultadosPPT.Empate
     elif eleccion_ordenador in Posibles_victorias[eleccion_usuario]:
         print(eleccion_usuario, " le gana a ", eleccion_ordenador, ". Ganaste! ~(^-^)~")
-        return ResultadosPPT.Victoria
+#        return ResultadosPPT.Victoria
     else:
         print(eleccion_ordenador, " le gana a ", eleccion_usuario, ". Perdiste :(")
-        return ResultadosPPT.Derrota
+#        return ResultadosPPT.Derrota
 
 
 
