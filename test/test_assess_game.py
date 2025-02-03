@@ -1,5 +1,5 @@
 import pytest
-# from src.juego_ppt import
+from src.juego_ppt import *
 
 
 @pytest.fixture
@@ -9,22 +9,22 @@ def game():
 
 @pytest.mark.draw
 def test_draw(game):
-    assert GameResult.Tie == game.assess_game(
-        user_action=GameAction.Spock,
-        computer_action=GameAction.Spock)
+    assert GameResult.Tie == game.evaluar_juego(
+        eleccion_usuario=EleccionesPPT.Spock,
+        eleccion_ordenador=EleccionesPPT.Spock)
 
-    assert GameResult.Tie == game.assess_game(
-        user_action=GameAction.Lizard,
-        computer_action=GameAction.Lizard)
+    assert GameResult.Tie == game.evaluar_juego(
+        eleccion_usuario=EleccionesPPT.Lagarto,
+        eleccion_ordenador=EleccionesPPT.Lagarto)
 
-    assert GameResult.Tie == game.assess_game(
-        user_action=GameAction.Rock,
-        computer_action=GameAction.Rock)
+    assert GameResult.Tie == game.evaluar_juego(
+        eleccion_usuario=EleccionesPPT.Piedra,
+        eleccion_ordenador=EleccionesPPT.Piedra)
 
-    assert GameResult.Tie == game.assess_game(
-        user_action=GameAction.Scissors,
-        computer_action=GameAction.Scissors)
+    assert GameResult.Tie == game.evaluar_juego(
+        eleccion_usuario=EleccionesPPT.Tijeras,
+        eleccion_ordenador=EleccionesPPT.Tijeras)
 
-    assert GameResult.Tie == game.assess_game(
-        user_action=GameAction.Paper,
-        computer_action=GameAction.Paper)
+    assert GameResult.Tie == game.evaluar_juego(
+        eleccion_usuario=EleccionesPPT.Papel,
+        eleccion_ordenador=EleccionesPPT.Papel)

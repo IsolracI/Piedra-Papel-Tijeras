@@ -2,86 +2,30 @@ import random
 
 class EleccionesPPT:
 
-    Roca = 0
+    Piedra = 0
     Papel = 1
     Tijeras = 2
-
-
-class ResultadosPPT:
-
-    Victoria = 1
-    Derrota = -1
-    Empate = 0
-
+    Lagarto = 3
+    Spock = 4
 
 Posibles_victorias = {
-    EleccionesPPT.Roca: EleccionesPPT.Tijeras,
+    EleccionesPPT.Piedra: EleccionesPPT.Tijeras, 
     EleccionesPPT.Tijeras: EleccionesPPT.Papel,
-    EleccionesPPT.Papel: EleccionesPPT.Roca
+    EleccionesPPT.Papel: EleccionesPPT.Piedra
 }
 
 def evaluar_juego(eleccion_usuario, eleccion_ordenador):
-    if user_action == computer_action:
-        print(f"User and computer picked {user_action.name}. Draw game!")
-
-    # You picked Rock
-    elif user_action == GameAction.Rock:
-        if computer_action == GameAction.Scissors:
-            print("Rock smashes scissors. You won!")
-        else:
-            print("Paper covers rock. You lost!")
-
-
-
-    # You picked Paper
-    elif user_action == GameAction.Paper:
-        if computer_action == GameAction.Rock:
-            print("Paper covers rock. You won!")
-        else:
-            print("Scissors cuts paper. You lost!")
-
-    
-
 
     if eleccion_usuario == eleccion_ordenador:
-        print("Ambos eligieron ", eleccion_usuario, ". Empate")
+        print("Ambos eligieron ", eleccion_usuario, ". Empate...")
         return ResultadosPPT.Empate
+    elif eleccion_ordenador in Posibles_victorias[eleccion_usuario]:
+        print(eleccion_usuario, " le gana a ", eleccion_ordenador, ". Ganaste! ~(^-^)~")
+        return ResultadosPPT.Victoria
     else:
-        for eleccion in Posibles_victorias:
-            if eleccion_usuario == eleccion.key and eleccion_ordenador == eleccion.values:
-                print("El usuario eligió ", )
+        print(eleccion_ordenador, " le gana a ", eleccion_usuario, ". Perdiste :(")
+        return ResultadosPPT.Derrota
 
-
-
-
-
-
-
-
-def assess_game(user_action, computer_action):
-    if user_action == computer_action:
-        print(f"User and computer picked {user_action.name}. Draw game!")
-
-    # You picked Rock
-    elif user_action == GameAction.Rock:
-        if computer_action == GameAction.Scissors:
-            print("Rock smashes scissors. You won!")
-        else:
-            print("Paper covers rock. You lost!")
-
-    # You picked Paper
-    elif user_action == GameAction.Paper:
-        if computer_action == GameAction.Rock:
-            print("Paper covers rock. You won!")
-        else:
-            print("Scissors cuts paper. You lost!")
-
-    # You picked Scissors
-    elif user_action == GameAction.Scissors:
-        if computer_action == GameAction.Rock:
-            print("Rock smashes scissors. You lost!")
-        else:
-            print("Scissors cuts paper. You won!")
 
 
 def get_computer_action():
