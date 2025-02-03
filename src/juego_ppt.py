@@ -1,5 +1,11 @@
 import random
 
+class ResultadosPPT:
+
+    Victoria = 1
+    Empate = 0
+    Derrota = -1
+
 class EleccionesPPT:
 
     Piedra = 0
@@ -20,15 +26,20 @@ def evaluar_juego(eleccion_usuario, eleccion_ordenador):
 
     if eleccion_usuario == eleccion_ordenador:
         print("Ambos eligieron ", eleccion_usuario, ". Empate...")
-#        return ResultadosPPT.Empate
+        return ResultadosPPT.Empate
     elif eleccion_ordenador in Posibles_victorias[eleccion_usuario]:
         print(eleccion_usuario, " le gana a ", eleccion_ordenador, ". Ganaste! ~(^-^)~")
-#        return ResultadosPPT.Victoria
+        return ResultadosPPT.Victoria
     else:
         print(eleccion_ordenador, " le gana a ", eleccion_usuario, ". Perdiste :(")
-#        return ResultadosPPT.Derrota
+        return ResultadosPPT.Derrota
 
+def get_eleccion_ordenador():
+    elemento_elegido = random.randint(0, len(EleccionesPPT) - 1)
+    eleccion_ordenador = EleccionesPPT(elemento_elegido)
+    print("el ordenador eligió ", eleccion_ordenador)
 
+    return eleccion_ordenador
 
 def get_computer_action():
     computer_selection = random.randint(0, len(GameAction) - 1)
